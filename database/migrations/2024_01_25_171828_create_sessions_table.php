@@ -15,8 +15,8 @@ return new class extends Migration {
             $table->timestamps();
             $table->date('timeStart');
             $table->date('timeEnd');
-            $table->integer('cinemaId');
-            $table->integer('movieId');
+            $table->integer('cinemaId')->references('id')->on('cinemas');
+            $table->integer('movieId')->references('id')->on('movies');
             $table->string('avatar');
         });
     }

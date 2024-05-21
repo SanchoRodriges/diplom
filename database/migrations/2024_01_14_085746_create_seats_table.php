@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('cinemaId');
+            $table->integer('cinemaId')->references('id')->on('cinemas');
             $table->integer('row');
             $table->integer('seat');
             $table->string('status');

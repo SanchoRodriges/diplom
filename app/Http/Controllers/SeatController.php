@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Seat;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreSeatRequest;
 
 class SeatController extends Controller
 {
@@ -23,7 +24,7 @@ class SeatController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreSeatRequest $request)
     {
         return Seat::create([
             'cinemaId' => $request['cinemaId'],

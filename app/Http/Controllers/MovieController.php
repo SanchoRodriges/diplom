@@ -6,6 +6,7 @@ use App\Models\Movie;
 use App\Models\Session;
 use Illuminate\Http\Request;
 
+
 class MovieController extends Controller
 {
     /**
@@ -13,11 +14,16 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies = Movie::all();
+        // $movies = Movie::all();
 
-        foreach ($movies as $movie) {
-            $movie['sessions'] = Session::where('movieId', $movie['id'])->get();
-        }
+        // foreach ($movies as $movie) {
+        //     $movie['sessions'] = Session::where('movieId', $movie['id'])->get();
+        // }
+
+        // return json_encode($movies);
+
+
+        $movies = Movie::with('sessions')->get();
 
         return json_encode($movies);
     }
@@ -61,4 +67,5 @@ class MovieController extends Controller
         }
         return json_encode(Session::all());
     }
+
 }

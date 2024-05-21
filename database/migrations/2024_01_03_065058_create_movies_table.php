@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->integer('length');
-            $table->string('description');
-            $table->string('avatar');
+            $table->integer('length')->nullable();
+            $table->string('description')->nullable();
+            $table->string('avatar')->nullable();
         });
     }
 

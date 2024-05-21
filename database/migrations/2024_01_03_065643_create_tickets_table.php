@@ -13,8 +13,8 @@ return new class extends Migration {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('sessionId');
-            $table->integer('seatId');
+            $table->integer('sessionId')->references('id')->on('sessions');
+            $table->integer('seatId')->references('id')->on('seats');
             $table->string('QR');
             $table->integer('price');
         });
